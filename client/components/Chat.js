@@ -3,6 +3,10 @@ import Message from './Message'
 import { useEffect, useState } from 'react';
 import { io } from 'socket.io-client';
 
+const socket = io(process.env.REACT_APP_API_URL, {
+  path: process.env.REACT_APP_SOCKET_PATH,
+});
+
 function Chat() {
   const [isConnected, setIsConnected] = useState(socket.connected);
   const [messages, setMessages] = useState([]);
